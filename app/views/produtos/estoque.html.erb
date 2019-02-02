@@ -1,0 +1,27 @@
+<div class="conteudo">	
+
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Descrição</th>
+				<th>Quantidade</th>
+				<th>Preço de Custo</th>
+				<th>Preço de Venda</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @todos.each do |produto| %>
+			<tr>
+				<td><%= produto.nome %></td>
+				<td><%= produto.descricao %></td>
+				<td><%= produto.quantidade %></td>
+				<td><%= produto.preco_custo %></td>
+				<td><%= produto.preco_venda %></td>	
+				<td><%= button_to "Excluir", produto, method: :delete, class: "btn btn-danger", data: {confirm: "Deseja remover o produto: #{produto.nome}"} %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

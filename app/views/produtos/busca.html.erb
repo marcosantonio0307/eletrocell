@@ -1,18 +1,13 @@
 <div class="conteudo">	
 
-	<% if flash[:notice] %>
-		<div class="alert alert-info" role="alert">
-	  		<%= flash[:notice] %>
-		</div>
-	<% end %>
-
 	<%= form_tag busca_produto_path, method: :get, class: "navbar-form navbar-right" do %>
 		<div class="form-group">
-			<%= text_field_tag :nome, nil, class: "form-control" %>
+			<%= link_to "Voltar", produtos_estoque_path %>
+			<%= text_field_tag :nome, @nome, class: "form-control" %>
 			<%= button_to "Buscar", nil, class: "btn btn-default" %>
 		</div>
 	<% end %>
 
 	<%= render 'produtos' %>
-
+	
 </div>

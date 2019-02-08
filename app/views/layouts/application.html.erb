@@ -13,7 +13,7 @@
   <body>  
 
     <div id="barra_de_logo">
-      <p align="center", style="margin-top: 20px; font-size: 40px; font-weight: bold;">ELETROCELL</p>
+      <p align="center"><%= image_tag "logo eletrocell 2.png", :width => "280px", :height => "90px"%></p>
     </div>
 
     <input type="checkbox" id="bt_menu">
@@ -32,7 +32,6 @@
           <ul>
             <li><%= link_to 'Meu Estoque', produtos_estoque_path %></li>
             <li><%= link_to "Novo Produto", produtos_new_path %></li>
-            <li><a href="">Entrada</a></li>
           </ul>
         </li>
         <li><a href="">Relatórios</a>

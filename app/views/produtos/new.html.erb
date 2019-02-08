@@ -1,38 +1,9 @@
 <div class="conteudo">
-	<%= form_for Produto.new do |f| %>
-
-	<div style="width: 60%; margin-top: 20px; margin-left: 50px;">
-
-		<div class="form-group">
-			<%= f.label :nome %>
-			<%= f.text_field :nome, class: "form-control" %>
+	<% @produto.errors.full_messages.each do |mensagem| %>
+		<div class="alert alert-danger" role="alert">
+			<%= mensagem %>
 		</div>
-
-		<div class="form-group">
-			<%= f.label :descricao %>
-			<%= f.text_area :descricao, class: "form-control" %>
-		</div>
-
-		<div class="form-group">
-			<%= f.label :quantidade %>
-			<%= f.number_field :quantidade, step: 1, class: "form-control" %>
-		</div>
-
-		<div class="form-group">
-			<%= f.label :preco_custo %>
-			<%= f.number_field :preco_custo, class: "form-control" %>
-		</div>
-
-		<div class="form-group">
-			<%= f.label :preco_venda %>
-			<%= f.number_field :preco_venda, class: "form-control" %>
-		</div>
-
-		<div>
-			<%= f.submit :criar, class: "btn btn-primary" %>
-		</div>
-
-	</div>
-
-	<% end %>
+	<% end %>	
+	<%= render 'form_produto' %>
+	
 </div>

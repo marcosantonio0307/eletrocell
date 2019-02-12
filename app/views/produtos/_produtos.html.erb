@@ -15,8 +15,8 @@
 			<td><%= produto.nome %></td>
 			<td><%= produto.descricao %></td>
 			<td><%= produto.quantidade %></td>
-			<td><%= produto.preco_custo %></td>
-			<td><%= produto.preco_venda %></td>	
+			<td><%= number_to_currency produto.preco_custo %></td>
+			<td><%= number_to_currency produto.preco_venda %></td>	
 			<td><%= button_to "Entrada", entrada_produto_path(produto), method: :get, class: "btn btn-primary" %></td>
 			<td><%= button_to "Alterar", edit_produto_path(produto), method: :get, class: "btn btn-warning" %></td>
 			<td><%= button_to "Excluir", produto, method: :delete, class: "btn btn-danger", data: {confirm: "Deseja remover o produto: #{produto.nome}"} %></td>

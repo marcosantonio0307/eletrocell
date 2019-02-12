@@ -1,0 +1,57 @@
+<div class="conteudo">
+
+	<style type="text/css">
+		.index {
+			width: 45%;
+			float: left;
+			margin: 15px;
+		}
+	</style>
+	
+	<div class="index">
+		<h4 align="center">Produtos com Estoque Alto</h4>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Quantidade</th>
+					<th>Preço de Venda</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @estoque_alto.each do |produto| %>
+				<tr>
+					<td><%= produto.nome %></td>
+					<td><%= produto.quantidade %></td>
+					<td><%= number_to_currency produto.preco_venda %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="index">
+		<h4 align="center">Produtos com Estoque baixo</h4>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Quantidade</th>
+					<th>Preço de Venda</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @estoque_baixo.each do |produto| %>
+				<tr>
+					<td><%= produto.nome %></td>
+					<td><%= produto.quantidade %></td>
+					<td><%= number_to_currency produto.preco_venda %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+
+</div>

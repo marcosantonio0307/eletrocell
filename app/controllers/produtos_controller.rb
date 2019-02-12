@@ -1,5 +1,11 @@
 class ProdutosController < ApplicationController
 
+	def index
+		@estoque_alto = Produto.order(:quantidade).limit 5
+		@estoque_alto = @estoque_alto.reverse
+		@estoque_baixo = Produto.order(:quantidade).limit 5
+	end
+
 	def estoque
 		@todos = Produto.order :nome
 	end
@@ -32,7 +38,11 @@ class ProdutosController < ApplicationController
 		@produto = Produto.find(params[:id])
 		valores = params.require(:produto).permit!
 		@produto.update valores
-		redirect_to produtos_estoque_path
+		if @produto.save
+			redirect_to produtos_estoque_path, notice: "Produto Alterado com Sucesso!"
+		else
+			render :edit
+		end
 	end
 
 	def entrada
@@ -43,7 +53,11 @@ class ProdutosController < ApplicationController
 		entrada = params[:entrada].to_i
 		@produto = Produto.find(params[:id])
 		@produto.update(quantidade: @produto.quantidade + entrada)
-		redirect_to produtos_estoque_path
+		if @produto.save
+			redirect_to produtos_estoque_path, notice: "Entrada Realizada com Sucesso!"
+		else
+			render :entrada
+		end
 	end
 
 	def destroy

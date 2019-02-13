@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  #Estoque
   post "produtos" => "produtos#create"
   get "produtos/estoque" => "produtos#estoque"
   get "produtos/new" => "produtos#new"
@@ -9,4 +11,13 @@ Rails.application.routes.draw do
   post "produtos/:id/entrada" => "produtos#somaquantidade"
   patch "produtos/:id" => "produtos#update"
   root "produtos#index"
+  #--------------------------------------------------------------------
+  
+  #Caixa
+  get "caixa/despesas" => "caixa#despesa"
+  post "despesas" => "caixa#create"
+  #--------------------------------------------------------------------
+
+  #Relatorios
+  get "relatorios/r_despesas" => "relatorios#r_despesas"
 end

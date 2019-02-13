@@ -1,0 +1,34 @@
+<div class="conteudo">
+
+	<div class="rotulo">
+		<span>Minhas Despesas</span>
+	</div>
+
+	<table class="table table-bordered">
+		
+		<thead>
+			<th>Tipo</th>
+			<th>Data</th>
+			<th>Descrição</th>
+			<th>Valor</th>
+		</thead>
+
+		<tbody>
+			<% @despesas.each do |despesa| %>
+			<tr>
+				<td><%= despesa.tipo %></td>
+				<td><%= despesa.created_at %></td>
+				<td><%= despesa.descricao %></td>
+				<td><%= number_to_currency despesa.valor %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+	<%= form_tag relatorios_r_despesas_path, class: "navbar-form navbar-right" do %>
+		<div>
+			<%= label_tag :total %>
+			<%= text_field_tag :total, @total, class: "form-controll", :disabled=>true %>
+		</div>
+	<% end %>
+</div>

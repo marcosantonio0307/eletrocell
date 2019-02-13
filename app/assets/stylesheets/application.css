@@ -153,3 +153,12 @@ label[for="bt_menu"] {
 
 /* -------------------------------------------- */
 
+.rotulo {
+	text-align: center;
+	margin: 25px auto;
+	background: #222;
+	width: 30%;
+	padding: 5px;
+	font-size: 20px;
+	color: white;
+}

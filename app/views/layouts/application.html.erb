@@ -24,8 +24,8 @@
         <li><%= link_to 'Home', root_path %></li>
         <li><a href="">Caixa</a>
           <ul>
-            <li><a href="">Nova Entrada</a></li>
-            <li><a href="">Nova Saida</a></li>
+            <li><a href="">Nova Receita</a></li>
+            <li><%= link_to "Nova Despesa", caixa_despesas_path %></li>
           </ul>
         </li>
         <li><a href="">Estoque</a>
@@ -36,7 +36,7 @@
         </li>
         <li><a href="">Relatórios</a>
           <ul>
-            <li><a href="">Diario</a></li>
+            <li><%= link_to 'Minhas Despesas', relatorios_r_despesas_path %></li>
             <li><a href="">Mensal</a></li>
             <li><a href="">Estoque</a></li>
           </ul>

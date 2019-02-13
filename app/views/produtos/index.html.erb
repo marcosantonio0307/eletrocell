@@ -1,16 +1,23 @@
 <div class="conteudo">
 
+	<% if flash[:notice] %>
+		<div class="alert alert-info" role="alert">
+	  		<%= flash[:notice] %>
+		</div>
+	<% end %>
+
 	<style type="text/css">
 		.index {
 			width: 45%;
 			float: left;
 			margin: 15px;
+			padding: 5px;
 		}
 	</style>
 	
 	<div class="index">
 		<h4 align="center">Produtos com Estoque Alto</h4>
-		<table class="table table-bordered">
+		<table class="table table-bordered", style="background-color: #6B8E23;">
 			<thead>
 				<tr>
 					<th>Nome</th>
@@ -33,7 +40,7 @@
 
 	<div class="index">
 		<h4 align="center">Produtos com Estoque baixo</h4>
-		<table class="table table-bordered">
+		<table class="table table-bordered", style="background-color: #FF6347">
 			<thead>
 				<tr>
 					<th>Nome</th>

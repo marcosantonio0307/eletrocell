@@ -1,4 +1,9 @@
 <div class="conteudo">
+
+	<div class="rotulo">
+		<span>Novo Produto</span>
+	</div>
+
 	<% @produto.errors.full_messages.each do |mensagem| %>
 		<div class="alert alert-danger" role="alert">
 			<%= mensagem %>

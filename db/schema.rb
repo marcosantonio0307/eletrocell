@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_30_000335) do
+ActiveRecord::Schema.define(version: 2019_02_13_001444) do
+
+  create_table "despesas", force: :cascade do |t|
+    t.string "tipo"
+    t.text "descricao"
+    t.decimal "valor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "produtos", force: :cascade do |t|
     t.string "nome"

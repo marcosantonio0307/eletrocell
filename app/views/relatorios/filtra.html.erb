@@ -12,6 +12,7 @@
 
 	<%= form_tag filtra_despesas_path, method: :get, class: "navbar-form navbar-right" do %>
 	<div class="form-group">
+		<%= link_to "Voltar", relatorios_r_despesas_path %>
 		<%= label_tag :data_inicial %>
 		<%= date_field_tag :data_inicial, @data_inicial, class: 'form-controll' %>
 		<%= label_tag :data_final %>
@@ -22,5 +23,4 @@
 	<% end %>
 
 	<%= render 'despesas' %>
-
 </div>

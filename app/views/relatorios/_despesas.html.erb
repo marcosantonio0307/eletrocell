@@ -1,0 +1,30 @@
+<table class="table table-bordered">
+		
+	<thead>
+		<th>Tipo</th>
+		<th>Data</th>
+		<th>Descrição</th>
+		<th>Valor</th>
+	</thead>
+
+	<tbody>
+		<% @despesas.each do |despesa| %>
+		<tr>
+			<td><%= despesa.tipo %></td>
+			<td><%= despesa.data %></td>
+			<td><%= despesa.descricao %></td>
+			<td><%= number_to_currency despesa.valor %></td>
+			<td><%= button_to "Alterar", edit_despesa_path(despesa), method: :get, class: "btn btn-warning" %></td>
+			<td><%= button_to "Excluir", despesa, method: :delete, class: "btn btn-danger", data: {confirm: "Deseja remover a despesa de: #{number_to_currency despesa.valor}"} %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= form_tag relatorios_r_despesas_path, class: "navbar-form navbar-right" do %>
+	<div>
+		<%= label_tag :total %>
+		<%= text_field_tag :total, (number_to_currency @total) , class: "form-controll", :disabled=>true %>
+	</div>
+
+<% end %>

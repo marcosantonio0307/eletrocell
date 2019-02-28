@@ -16,8 +16,12 @@ Rails.application.routes.draw do
   #Caixa
   get "caixa/despesas" => "caixa#despesa"
   post "despesas" => "caixa#create"
+  get "caixa/:id/edit" => "caixa#edit", as: :edit_despesa
+  patch "relatorios/:id" => "caixa#update"
   #--------------------------------------------------------------------
 
   #Relatorios
   get "relatorios/r_despesas" => "relatorios#r_despesas"
+  delete "relatorios/:id" => "relatorios#destroy", as: :despesa
+  get "relatorios/filtra" => "relatorios#filtra", as: :filtra_despesas
 end

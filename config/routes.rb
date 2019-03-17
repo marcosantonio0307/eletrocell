@@ -24,4 +24,11 @@ Rails.application.routes.draw do
   get "relatorios/r_despesas" => "relatorios#r_despesas"
   delete "relatorios/:id" => "relatorios#destroy", as: :despesa
   get "relatorios/filtra" => "relatorios#filtra", as: :filtra_despesas
+
+  #Vendas
+  get "vendas/new" => "vendas#new"
+  post "vendas" => "vendas#create"
+  get "vendas/:id" => "vendas#show"
+
+  #--------------------------------------------------------------------
 end

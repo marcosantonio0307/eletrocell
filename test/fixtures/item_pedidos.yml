@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  produto_id: one
+  venda_id: one
+  valor_item: 9.99
+
+two:
+  produto_id: two
+  venda_id: two
+  valor_item: 9.99

@@ -29,5 +29,5 @@ class CaixaController < ApplicationController
 			render :edit
 		end
 	end
-
+	
 end

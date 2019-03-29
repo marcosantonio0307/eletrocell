@@ -1,1 +1,26 @@
-<%= @venda.show %>
+<div class="conteudo">
+
+	<% if flash[:notice] %>
+		<div class="alert alert-info" role="alert">
+	  		<%= flash[:notice] %>
+		</div>
+	<% end %>
+
+	<div class="rotulo">
+		<span>Venda nº <%= @venda.id %> </span>
+	</div>
+
+	<table class="table table-bordered", style="width: 90%; margin: 5px auto;">
+		<thead>
+			<th>Valor Total</th>
+			<th>Status</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @venda.valor_total %></td>
+				<td><%= @venda.status %></td>
+				<td><%= link_to "Itens", "#{@venda.id}/item_pedidos" , class: 'btn btn-primary' %></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,4 +1,4 @@
 class ItemPedido < ApplicationRecord
-  belongs_to :produto_id
-  belongs_to :venda_id
+  belongs_to :produto
+  belongs_to :venda
 end

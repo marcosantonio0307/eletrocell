@@ -1,0 +1,34 @@
+<div class="conteudo">	
+
+	<div class="rotulo">
+		<span>Itens da venda nº <%= params[:venda_id] %></span>
+	</div>
+
+	<% if flash[:notice] %>
+		<div class="alert alert-info" role="alert">
+	  		<%= flash[:notice] %>
+		</div>
+	<% end %>
+
+	<div class="navbar navbar-right">
+		<%= link_to "Adicionar Item", new_venda_item_pedido_path, class: "btn btn-primary" %>
+	</div>
+
+	<table class="table table-bordered">
+		<thead>
+		    <tr>
+		      <th>Item</th>
+		      <th>Valor</th>
+		    </tr>
+		</thead>
+		<% @itens.each do |item| %>
+	  	<tbody>
+	    	<tr>
+	    		<td><%= item.produto.nome %></td>
+	    		<td><%= item.valor_item %></td>
+	    		<td><%= button_to "Excluir", venda_item_pedido_path(@venda, item), method: :delete, class: "btn btn-danger", data: {confirm: "Deseja remover o item: #{item.produto.nome}"} %></td>
+	    	</tr>
+ 	 	</tbody>
+ 	 	<% end %>
+	</table>
+</div>

@@ -1,0 +1,33 @@
+<div class="conteudo">	
+
+	<div class="rotulo">
+		<span>Minhas Vendas</span>
+	</div>
+
+	<% if flash[:notice] %>
+		<div class="alert alert-info" role="alert">
+	  		<%= flash[:notice] %>
+		</div>
+	<% end %>
+
+	<table class="table table-bordered">
+		<thead>
+		    <tr>
+		      <th>Id</th>
+		      <th>Valor</th>
+		      <th>Status</th>
+		    </tr>
+		</thead>
+		<% @vendas.each do |venda| %>
+	  	<tbody>
+	    	<tr>
+	    		<td><%= venda.id %></td>
+	    		<td><%= venda.valor_total %></td>
+	    		<td><%= venda.status %></td>
+	    		<td><%= button_to "Excluir", venda, method: :delete, class: "btn btn-danger", data: {confirm: "Deseja remover a venda: #{venda.id}"} %></td>
+	    		<td><%= button_to "Exibir", "vendas/#{venda.id}", class: "btn btn-primary" %></td>
+	    	</tr>
+ 	 	</tbody>
+ 	 	<% end %>
+	</table>
+</div>	

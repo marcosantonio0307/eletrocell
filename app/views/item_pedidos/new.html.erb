@@ -1,0 +1,30 @@
+<div class="conteudo">
+
+	<div class="rotulo">
+		<span>Novo item_pedido</span>
+	</div>
+
+	<div style="float: right;">
+		<%= label_tag :valor_total_pedido%>
+		<%= text_field_tag :valor_total_pedido, number_to_currency(@venda.valor_total), :disabled=>true %>
+	</div>
+
+	<%= form_for ([@venda, @item_pedido]) do |f| %>
+
+	<div class="form-group">
+    	<%= f.label :produto_id %>
+    	<%= f.select(:produto_id, Produto.all.map{|c| [c.nome, c.id] }) %>    
+	</div>
+
+	<div class="form-group", style="width: 30%">
+		<%= f.label :valor_item %>
+		<%= f.text_field :valor_item, class: "form-control" %>
+	</div>
+
+	<div>
+		<%= f.submit :incluir, class: "btn btn-primary" %>
+	</div>
+
+	<% end %>
+
+</div>

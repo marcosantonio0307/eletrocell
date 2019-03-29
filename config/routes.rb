@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :vendas do
+    resources :item_pedidos
+  end
   
   #Estoque
   post "produtos" => "produtos#create"
@@ -27,8 +31,15 @@ Rails.application.routes.draw do
 
   #Vendas
   get "vendas/new" => "vendas#new"
-  post "vendas" => "vendas#create"
   get "vendas/:id" => "vendas#show"
-
+  post "vendas/:id" => "vendas#show"
+  post "vendas" => "vendas#create"
+  get "vendas" => "vendas#index"
+  delete "vendas/:id" => "vendas#destroy"
+  #post "vendas/:id/item_pedidos" => "item_pedidos#index", as: :item_pedidos
+  #get "vendas/:id/item_pedidos/new" => "item_pedidos#new", as: :new_vendas_item_pedidos
+  #post "vendas/:id/item_pedidos/create" => "item_pedidos#create", as: :venda_item_pedidos
   #--------------------------------------------------------------------
+
+
 end

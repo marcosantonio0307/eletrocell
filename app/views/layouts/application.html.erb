@@ -24,7 +24,7 @@
         <li><%= link_to 'Home', root_path %></li>
         <li><a href="">Caixa</a>
           <ul>
-            <li><a href="">Nova Receita</a></li>
+            <li><%= link_to "Nova Venda", vendas_new_path %></a></li>
             <li><%= link_to "Nova Despesa", caixa_despesas_path %></li>
           </ul>
         </li>
@@ -37,7 +37,7 @@
         <li><a href="">Relatórios</a>
           <ul>
             <li><%= link_to 'Minhas Despesas', relatorios_r_despesas_path %></li>
-            <li><a href="">Mensal</a></li>
+            <li><%= link_to 'Minhas Vendas', vendas_path %></li>
             <li><a href="">Estoque</a></li>
           </ul>
         </li>

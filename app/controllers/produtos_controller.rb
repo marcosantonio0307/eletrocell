@@ -1,7 +1,8 @@
 class ProdutosController < ApplicationController
 
 	def index
-		@estoque_alto = Produto.order(:quantidade).limit 5
+		@estoque_alto = Produto.order(:quantidade)
+		@estoque_alto = @estoque_alto.last(5)
 		@estoque_alto = @estoque_alto.reverse
 		@estoque_baixo = Produto.order(:quantidade).limit 5
 	end

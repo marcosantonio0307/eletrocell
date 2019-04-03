@@ -1,5 +1,10 @@
 <div class="conteudo">
 
+	<div class="rotulo">
+		<span>Visão Geral</span>
+	</div>
+
+
 	<% if flash[:notice] %>
 		<div class="alert alert-info" role="alert">
 	  		<%= flash[:notice] %>
@@ -17,7 +22,7 @@
 	
 	<div class="index">
 		<h4 align="center", style="background-color: #6B8E23; padding: 5px;" >Produtos com Estoque Alto</h4>
-		<table class="table table-bordered", style="background-color: #6B8E23;">
+		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>Nome</th>
@@ -40,7 +45,7 @@
 
 	<div class="index">
 		<h4 align="center", style="background-color: #FF6347; padding: 5px;">Produtos com Estoque Baixo</h4>
-		<table class="table table-bordered", style="background-color: #FF6347">
+		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>Nome</th>

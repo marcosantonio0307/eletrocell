@@ -28,14 +28,18 @@ Rails.application.routes.draw do
   get "relatorios/r_despesas" => "relatorios#r_despesas"
   delete "relatorios/:id" => "relatorios#destroy", as: :despesa
   get "relatorios/filtra" => "relatorios#filtra", as: :filtra_despesas
+  get "relatorios/r_vendas" => "relatorios#r_vendas"
+  get "relatorios/filtra_vendas" => "relatorios#filtra_vendas"
 
   #Vendas
+  get "vendas/filtra" => "vendas#filtra"
   get "vendas/new" => "vendas#new"
   get "vendas/:id" => "vendas#show"
   post "vendas/:id" => "vendas#show"
   post "vendas" => "vendas#create"
   get "vendas" => "vendas#index"
   delete "vendas/:id" => "vendas#destroy"
+
   #post "vendas/:id/item_pedidos" => "item_pedidos#index", as: :item_pedidos
   #get "vendas/:id/item_pedidos/new" => "item_pedidos#new", as: :new_vendas_item_pedidos
   #post "vendas/:id/item_pedidos/create" => "item_pedidos#create", as: :venda_item_pedidos

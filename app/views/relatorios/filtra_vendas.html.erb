@@ -1,0 +1,56 @@
+<div class="conteudo">	
+
+	<div class="rotulo">
+		<span>Minhas Vendas</span>
+	</div>
+
+	<% if flash[:notice] %>
+		<div class="alert alert-info" role="alert">
+	  		<%= flash[:notice] %>
+		</div>
+	<% end %>
+
+	<%= form_tag relatorios_filtra_vendas_path, method: :get, class: "navbar-form navbar-right" do %>
+	<div class="form-group">
+		<%= label_tag :data_inicial %>
+		<%= date_field_tag :data_inicial, @data_inicial, class: 'form-controll' %>
+		<%= label_tag :data_final %>
+		<%= date_field_tag :data_final, @data_final, class: 'form-controll' %>
+		<%= link_to "Voltar", relatorios_r_vendas_path, class: "btn btn-default" %>
+		<%= button_to "Filtrar", nil, class: 'btn btn-primary' %>
+
+	</div>
+	<% end %>
+
+	<table class="table table-bordered">
+	<thead>
+	    <tr>
+	      <th>Id</th>
+	      <th>Cliente</th>
+	      <th>Data</th>
+	      <th>Valor</th>
+	      <th>Status</th>
+	    </tr>
+	</thead>
+	<% @filtro.each do |venda| %>
+		<tbody>
+		<tr>
+			<td><%= venda.id %></td>
+			<td><%= venda.cliente %></td>
+			<td><%= venda.created_at.strftime("%d/%m/%Y")%></td>
+			<td><%= number_to_currency venda.valor_total %></td>
+			<td><%= venda.status %></td>
+			<td><%= button_to "Exibir", venda_path(venda), class: "btn btn-primary" %></td>
+			<td><%= button_to "Excluir", venda, method: :delete, class: "btn btn-danger", data: {confirm: "Deseja remover a venda: #{venda.id}"} %></td>
+		</tr>
+	 	</tbody>
+	 	<% end %>
+ </table>
+</div>	
+
+<%= form_tag relatorios_r_despesas_path, class: "navbar-form navbar-right" do %>
+	<div>
+		<%= label_tag :total %>
+		<%= text_field_tag :total, (number_to_currency @total) , class: "form-controll", :disabled=>true %>
+	</div>
+<% end %>

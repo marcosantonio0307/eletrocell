@@ -162,3 +162,7 @@ label[for="bt_menu"] {
 	font-size: 20px;
 	color: white;
 }
+
+#pai div {
+	display: none;
+}

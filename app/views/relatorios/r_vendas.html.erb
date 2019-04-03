@@ -1,4 +1,8 @@
-<div class="conteudo">
+<div class="conteudo">	
+
+	<div class="rotulo">
+		<span>Minhas Vendas</span>
+	</div>
 
 	<% if flash[:notice] %>
 		<div class="alert alert-info" role="alert">
@@ -6,11 +10,7 @@
 		</div>
 	<% end %>
 
-	<div class="rotulo">
-		<span>Minhas Despesas</span>
-	</div>
-
-	<%= form_tag filtra_despesas_path, method: :get, class: "navbar-form navbar-right" do %>
+	<%= form_tag relatorios_filtra_vendas_path, method: :get, class: "navbar-form navbar-right" do %>
 	<div class="form-group">
 		<%= label_tag :data_inicial %>
 		<%= date_field_tag :data_inicial, @data_inicial, class: 'form-controll' %>
@@ -21,6 +21,5 @@
 	</div>
 	<% end %>
 
-	<%= render 'despesas' %>
-
-</div>
+	<%= render 'vendas' %>
+</div>	

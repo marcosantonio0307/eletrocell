@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_022439) do
+ActiveRecord::Schema.define(version: 2019_04_03_013516) do
 
   create_table "despesas", force: :cascade do |t|
     t.string "tipo"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_022439) do
     t.decimal "valor_item"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "quantidade"
     t.index ["produto_id"], name: "index_item_pedidos_on_produto_id"
     t.index ["venda_id"], name: "index_item_pedidos_on_venda_id"
   end
@@ -46,6 +47,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_022439) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cliente"
+    t.decimal "valor_servico"
   end
 
 end

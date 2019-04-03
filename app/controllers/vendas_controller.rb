@@ -19,11 +19,11 @@ class VendasController < ApplicationController
 	def destroy
 		id = params[:id]
 		Venda.destroy id
-		redirect_to vendas_path, notice: "Venda Excluida!"
+		redirect_to relatorios_r_vendas_path, notice: "Venda Excluida!"
 	end
 
 	def show
 		@venda = Venda.find(params[:id])
-	end
+	end	
 
 end

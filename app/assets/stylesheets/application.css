@@ -166,3 +166,21 @@ label[for="bt_menu"] {
 #pai div {
 	display: none;
 }
+
+.botao_login {
+	float: right;
+	line-height: 100px;
+	margin-right: 1em;
+}
+
+.tela_login {
+	margin: 1em 45%;
+}
+
+.form_login {
+	margin: 0px 40%;
+}
+
+.logo {
+	margin: 0.2em 40%;
+}

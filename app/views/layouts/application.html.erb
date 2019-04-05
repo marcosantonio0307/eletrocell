@@ -13,7 +13,13 @@
   <body>  
 
     <div id="barra_de_logo">
-      <p align="center"><%= image_tag "logo eletrocell 2.png", :width => "280px", :height => "90px"%></p>
+      <% if user_signed_in? %>
+        <p class="botao_login"><%= image_tag "login.png", :width => "40px", :height => "40px" %></p>
+        <p class="botao_login"><%= link_to "Sair", destroy_user_session_path, method: :delete, class: "btn btn-danger", data: {confirm: 'Deseja encerrar a sessão?'} %></p>
+      <% else %>
+        <p class="botao_login"><%= link_to "Entrar", new_user_session_path, class: "btn btn-success" %></p>
+      <% end %>
+      <p class="logo"><%= image_tag "logo eletrocell 2.png", :width => "280px", :height => "90px"%></p>
     </div>
 
     <input type="checkbox" id="bt_menu">

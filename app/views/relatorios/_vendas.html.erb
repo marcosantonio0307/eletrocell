@@ -17,6 +17,7 @@
 			<td><%= number_to_currency venda.valor_total %></td>
 			<td><%= venda.status %></td>
 			<td><%= button_to "Exibir", venda_path(venda), class: "btn btn-primary" %></td>
+			<td><%= button_to "Editar", edit_venda_path(venda), class: "btn btn-warning" %></td>
 			<td><%= button_to "Excluir", venda, method: :delete, class: "btn btn-danger", data: {confirm: "Deseja remover a venda: #{venda.id}"} %></td>
 		</tr>
 	 	</tbody>

@@ -13,7 +13,7 @@ class RelatoriosController < ApplicationController
 		@vendas = Venda.all
 		@total = 0
 		@vendas.each do |venda|
-			@total += venda.valor_total
+			@total += venda.valor_total unless venda.valor_total.nil?
 		end
 		@total
 	end
@@ -54,7 +54,7 @@ class RelatoriosController < ApplicationController
 		@filtro = []
 
 		if @data_inicial > @data_final
-			redirect_to vendas_path, notice: "Data inicial é maior que a data final"
+			redirect_to relatorios_r_vendas_path, notice: "Data inicial é maior que a data final"
 		else
 			@vendas.each do |venda|
 				if venda.created_at.strftime("%Y-%m-%d") == @data_inicial 
@@ -67,7 +67,7 @@ class RelatoriosController < ApplicationController
 			end
 
 			@filtro.each do |venda|
-				@total += venda.valor_total
+				@total += venda.valor_total unless venda.valor_total.nil?
 			end
 		end
 	end

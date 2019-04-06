@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
+
   resources :vendas do
     resources :item_pedidos
   end
@@ -40,6 +41,8 @@ Rails.application.routes.draw do
   post "vendas" => "vendas#create"
   get "vendas" => "vendas#index"
   delete "vendas/:id" => "vendas#destroy"
+  post "vendas/:id/update" => "vendas#update", as: :update_venda
+  post "vendas/:id/edit" => "vendas#edit"
 
   #post "vendas/:id/item_pedidos" => "item_pedidos#index", as: :item_pedidos
   #get "vendas/:id/item_pedidos/new" => "item_pedidos#new", as: :new_vendas_item_pedidos

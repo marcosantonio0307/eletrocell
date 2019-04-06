@@ -1,7 +1,7 @@
 <div class="conteudo">	
 
 	<div class="rotulo">
-		<span>Venda nº <%= params[:venda_id] %></span>
+		<span>Venda nº <%= params[:id] %></span>
 	</div>
 
 	<% if flash[:notice] %>
@@ -10,11 +10,10 @@
 		</div>
 	<% end %>
 
-	<%= form_for @venda do |f| %>
-		<div style="width: 60%; margin-top: 20px; margin-left: 50px;">
+		<div style="width: 60%; margin-top: 4em; margin-left: 50px;">
 
-			<div class="navbar-form navbar-left">
-				<%= link_to "Adicionar Item", new_venda_item_pedido_path, class: "btn btn-primary" %>
+			<div style="margin-bottom: 1em">
+				<%= link_to "Adicionar Item", new_venda_item_pedido_path(@venda), class: "btn btn-primary" %>
 			</div>
 
 			<table class="table table-bordered">
@@ -25,7 +24,7 @@
 				      <th>Valor</th>
 				    </tr>
 				</thead>
-				<% total_itens = 0 %>
+				<% @total_itens = 0 %>
 				<% @itens.each do |item| %>
 			  	<tbody>
 			    	<tr>
@@ -33,23 +32,22 @@
 			    		<td><%= item.quantidade %></td>
 			    		<td><%= number_to_currency item.valor_item %></td>
 			    		<td><%= button_to "Excluir", venda_item_pedido_path(@venda, item), method: :delete, class: "btn btn-danger", data: {confirm: "Deseja remover o item: #{item.produto.nome}"} %></td>
-			    		<% total_itens += item.valor_item %>
-			    	</tr>
-			    	<tr>
-			    		<td colspan="4", align="right"> Total Itens: <%= number_to_currency total_itens %></td>
+			    		<% @total_itens += item.valor_item %>
 			    	</tr>
 		 	 	</tbody>
 		 	 	<% end %>
 			</table>
 
+			<div align="right">
+				<%= label_tag :total %>
+				<%= text_field_tag :total, number_to_currency(@total_itens), :disabled=>true %>
+			</div>
+
+			<br>
+			<%= form_for @venda do |f| %>
 			<div class="form-group">
 				<%= f.label :cliente %>
 				<%= f.text_field :cliente, class: "form-control" %>
-			</div>
-
-			<div class="form-group">
-				<%= f.label :valor_servico %>
-				<%= f.text_field :valor_servico, class: "form-control" %>
 			</div>
 
 			<div class="form-group">
@@ -57,13 +55,13 @@
 				<%= f.select :status, ['Pago', 'Não Pago'], class: "form-control" %>
 			</div>
 
-			<div class="form_group">
-				<%= label_tag :valor_total %>
-				<%= text_field_tag :valor_total, @venda.valor_total, class: "form-control" %>
+			<div class="form-group">
+				<% f.label :valor_total %>
+				<% f.select :valor_total, [@total_itens], class: "form-control" %>
 			</div>
 
 			<div class="form-group">
-				<%= button_to "Salvar", update_venda_path(@venda, @item_pedidos), class: "btn btn-primary" %>
+				<%= f.submit :salvar, class: "btn btn-success" %>
 			</div>
 
 		</div>

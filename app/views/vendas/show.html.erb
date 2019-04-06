@@ -1,34 +1,51 @@
 <div class="conteudo">
 
-	<% if flash[:notice] %>
-		<div class="alert alert-info" role="alert">
-	  		<%= flash[:notice] %>
-		</div>
-	<% end %>
+	<div class="navbar-form navbar-right">
+		<%= link_to 'Voltar para vendas', relatorios_r_vendas_path, class: "btn btn-default" %>
+	</div>
 
 	<div class="rotulo">
 		<span>Venda nº <%= @venda.id %> </span>
 	</div>
 
-	<div class="navbar-form navbar-right">
-		<%= link_to 'Todas as vendas', relatorios_r_vendas_path, class: "btn btn-default" %>
+	<div class="form_centralizado"> 
+		
+		<div>
+			<%= label_tag :cliente %>
+			<%= text_field_tag :cliente, @venda.cliente, :disabled=>true, class: "field_longo" %>
+		</div>
+
+		<div>
+			<%= label_tag :status %>
+			<%= text_field_tag :status, @venda.status, :disabled=>true, class: "field_longo" %>
+		</div>
+
+		<div>
+			<%= label_tag :valor_total %>
+			<%= text_field_tag :valor_total, number_to_currency(@venda.valor_total)	, :disabled=>true, class: "field_longo" %>
+		</div>
+
+		<h3>Itens</h3>
+
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Quantidade</th>
+					<th>Valor Un.</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% @itens.each do |item| %>
+				<tr>
+					<td><%= item.produto.nome %></td>
+					<td><%= item.quantidade %></td>
+					<td><%= number_to_currency item.valor_item %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+	
 	</div>
 
-	<table class="table table-bordered">
-		<thead>
-			<th>Cliente</th>
-			<th>Valor Serviço</th>
-			<th>Valor Total</th>
-			<th>Status</th>
-		</thead>
-		<tbody>
-			<tr>
-				<td><%= @venda.cliente %></td>
-				<td><%= @venda.valor_servico %></td>
-				<td><%= number_to_currency @venda.valor_total %></td>
-				<td><%= @venda.status %></td>
-				<td><%= link_to "Itens", "#{@venda.id}/item_pedidos" , class: 'btn btn-primary' %></td>
-			</tr>
-		</tbody>
-	</table>
 </div>

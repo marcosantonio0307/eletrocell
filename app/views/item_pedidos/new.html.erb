@@ -4,18 +4,6 @@
 		<span>Novo item_pedido</span>
 	</div>
 
-	<div style="float: right;">
-		<%= label_tag :valor_servico%>
-		<%= text_field_tag :valor_servico, number_to_currency(@venda.valor_servico), :disabled=>true %>
-	</div>
-	
-		<br><br>
-
-	<div style="float: right">
-		<%= label_tag :valor_total_pedido%>
-		<%= text_field_tag :valor_total_pedido, number_to_currency(@venda.valor_total), :disabled=>true %>
-	</div>
-
 	<%= form_for ([@venda, @item_pedido]) do |f| %>
 
 	<div class="form-group">

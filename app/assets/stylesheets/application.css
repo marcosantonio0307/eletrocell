@@ -184,3 +184,13 @@ label[for="bt_menu"] {
 .logo {
 	margin: 0.2em 40%;
 }
+
+.form_centralizado {
+	width: 60%;
+	margin: 5em auto;
+
+}
+
+.field_longo {
+	width: 100%
+}

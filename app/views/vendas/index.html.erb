@@ -37,11 +37,12 @@
 				<tr>
 					<td><%= venda.id %></td>
 					<td><%= venda.cliente %></td>
-					<td><%= venda.velor_servico %></td>
+					<td><%= venda.valor_servico %></td>
 					<td><%= venda.created_at.strftime("%d/%m/%Y")%></td>
 					<td><%= number_to_currency venda.valor_total %></td>
 					<td><%= venda.status %></td>
 					<td><%= button_to "Exibir", venda_path(venda), class: "btn btn-primary" %></td>
+					<td><%= button_to "Editar", edit_venda_path(venda), class: "btn btn-primary" %></td>
 					<td><%= button_to "Excluir", venda, method: :delete, class: "btn btn-danger", data: {confirm: "Deseja remover a venda: #{venda.id}"} %></td>
 				</tr>
 		 	</tbody>

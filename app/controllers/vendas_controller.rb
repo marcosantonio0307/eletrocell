@@ -6,14 +6,23 @@ class VendasController < ApplicationController
 
 	def new
 		@venda = Venda.new
+		@venda.cliente = 'Cliente'
+		@venda.valor_servico = 0
+		@venda.save
+		redirect_to edit_venda_path(@venda)
 	end
 
-	def create
+	def edit
+		@venda = Venda.find(params[:id])
+		@itens = ItemPedido.where(venda_id: @venda.id)	
+	end
+
+	def update
 		valores = params.require(:venda).permit!
-		@venda = Venda.new valores
-		if @venda.save
-			redirect_to "/vendas/#{@venda.id}", notice: 'Nova venda cadastrada!'
-		end
+		params[:valor_total] = @total_itens
+		@venda = Venda.find(params[:id])
+		@venda.update valores
+		redirect_to relatorios_r_vendas_path
 	end
 
 	def destroy
@@ -24,6 +33,7 @@ class VendasController < ApplicationController
 
 	def show
 		@venda = Venda.find(params[:id])
+		@itens = ItemPedido.where(venda_id: @venda.id)
 	end	
 
 end

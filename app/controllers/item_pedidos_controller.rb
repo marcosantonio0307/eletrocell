@@ -23,7 +23,7 @@ class ItemPedidosController < ApplicationController
     @produto.update(quantidade: @produto.quantidade)
 
     if @item_pedido.save
-      redirect_to venda_item_pedidos_path(@venda), notice: 'Item Adicionado com sucesso'
+      redirect_to edit_venda_path(@venda), notice: 'Item Adicionado com sucesso'
     else
       render :new
     end

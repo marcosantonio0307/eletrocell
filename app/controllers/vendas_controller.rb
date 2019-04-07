@@ -7,7 +7,6 @@ class VendasController < ApplicationController
 	def new
 		@venda = Venda.new
 		@venda.cliente = 'Cliente'
-		@venda.valor_servico = 0
 		@venda.save
 		redirect_to edit_venda_path(@venda)
 	end

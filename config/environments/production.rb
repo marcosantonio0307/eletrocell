@@ -93,7 +93,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #devise
-  config.action_mailer.default_url_options = { host: '52.3.167.89' }
+  config.action_mailer.default_url_options = { host: '34.224.36.137' }
   #52.3.167.89
   #34.224.36.137
 end

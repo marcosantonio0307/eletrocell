@@ -94,6 +94,5 @@ Rails.application.configure do
 
   #devise
   config.action_mailer.default_url_options = { host: 'eletrocell.herokuapp.com' }
-  #52.3.167.89
-  #34.224.36.137
+  
 end

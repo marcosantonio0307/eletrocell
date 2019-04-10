@@ -13,6 +13,11 @@
 		</div>
 
 		<div class="form-group">
+			<%= f.label :tipo %>
+			<%= f.select :tipo, ["produto", "serviço"], class: "form-control" %>
+		</div>
+
+		<div class="form-group">
 			<%= f.label :quantidade %>
 			<%= f.number_field :quantidade, step: 1, class: "form-control" %>
 		</div>

@@ -30,4 +30,17 @@ class CaixaController < ApplicationController
 		end
 	end
 	
+	def tipos
+		@tipos = TiposDespesa.all
+	end
+
+	def new_tipo
+		@tipo = TiposDespesa.new
+	end
+
+	def create_tipos
+		tipo = params[:descricao]
+		@tipo = TiposDespesa.create tipo
+		redirect_to caixa_tipo_path
+	end
 end

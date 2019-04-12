@@ -24,7 +24,7 @@
 	 	<% end %>
  </table>
 
- <%= form_tag relatorios_r_despesas_path, class: "navbar-form navbar-right" do %>
+ <%= form_tag relatorios_r_vendas_path, class: "navbar-form navbar-right" do %>
 	<div>
 		<%= label_tag :total %>
 		<%= text_field_tag :total, (number_to_currency @total) , class: "form-controll", :disabled=>true %>

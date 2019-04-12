@@ -59,7 +59,7 @@ class RelatoriosController < ApplicationController
 			@vendas.each do |venda|
 				if venda.created_at.strftime("%Y-%m-%d") == @data_inicial 
 					@filtro << venda
-				elsif venda.created_at.strftime("%Y-%m-%d") > @data_inicial && venda.created_at.strftime("%Y/%m/%d") < @data_final
+				elsif venda.created_at.strftime("%Y-%m-%d") > @data_inicial && venda.created_at.strftime("%Y-%m-%d") < @data_final
 					@filtro << venda
 				elsif venda.created_at.strftime("%Y-%m-%d") == @data_final
 					@filtro << venda

@@ -1,10 +1,34 @@
 class ProdutosController < ApplicationController
 
 	def index
-		@estoque_alto = Produto.order(:quantidade)
-		@estoque_alto = @estoque_alto.last(5)
-		@estoque_alto = @estoque_alto.reverse
-		@estoque_baixo = Produto.order(:quantidade).limit 5
+
+		#estoque alto na index
+		@estoque_alto = []
+		estoque_alto = Produto.all
+		estoque_alto.each do |produto|
+			if produto.quantidade > 15
+				@estoque_alto << produto
+			end
+		end
+		@estoque_alto = @estoque_alto.sort_by{|produto| produto.quantidade}.reverse
+
+		#estoque baixo na index
+		@estoque_baixo = []
+		estoque_baixo = Produto.all
+		estoque_baixo.each do |produto|
+			if produto.quantidade < 5
+				@estoque_baixo << produto
+			end
+		end
+		@estoque_baixo = @estoque_baixo.sort_by{|produto| produto.quantidade}
+
+		#ultimas vendas na index
+		@ultimas_vendas = Venda.last(5)
+		@ultimas_vendas = @ultimas_vendas.reverse
+
+		#ultimas despesas na index
+		@ultimas_despesas = Despesa.last(5)
+		@ultimas_despesas = @ultimas_despesas.reverse
 	end
 
 	def estoque

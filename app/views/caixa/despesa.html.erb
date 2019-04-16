@@ -4,6 +4,12 @@
 		<span>Nova Despesa</span>
 	</div>
 
+	<% @despesa.errors.full_messages.each do |mensagem| %>
+		<div class="alert alert-danger" role="alert">
+			<%= mensagem %>
+		</div>
+	<% end %>	
+
 	<%= render 'form_despesa' %>
 
 </div>

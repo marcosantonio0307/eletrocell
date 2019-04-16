@@ -5,7 +5,7 @@
 			<th>Descrição</th>
 			<th>Tipo</th>
 			<th>Quantidade</th>
-			<th>Preço de Custo</th>
+			<th class="esconder">Preço de Custo</th>
 			<th>Preço de Venda</th>
 		</tr>
 	</thead>
@@ -17,7 +17,7 @@
 			<td><%= produto.descricao %></td>
 			<td><%= produto.tipo %></td>
 			<td><%= produto.quantidade %></td>
-			<td><%= number_to_currency produto.preco_custo %></td>
+			<td class="esconder"><%= number_to_currency produto.preco_custo %></td>
 			<td><%= number_to_currency produto.preco_venda %></td>	
 			<td style="border-right: none;"><%= button_to "Entrada", entrada_produto_path(produto), method: :get, class: "btn btn-primary" %></td>
 			<td style="border-left: none; border-right: none;"><%= button_to "Alterar", edit_produto_path(produto), method: :get, class: "btn btn-warning" %></td>

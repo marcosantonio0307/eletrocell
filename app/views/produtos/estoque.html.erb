@@ -11,6 +11,8 @@
 		</div>
 	<% end %>
 
+	<input type="submit" value="Admin" id="botao" onclick="mostrar_esconde() ">
+
 	<%= form_tag busca_produto_path, method: :get, class: "navbar-form navbar-right" do %>
 		<div class="form-group">
 			<%= text_field_tag :nome, nil, class: "form-control" %>
@@ -19,5 +21,34 @@
 	<% end %>
 
 	<%= render 'produtos' %>
+
+	<script type="text/javascript">
+
+		esconder = document.getElementsByClassName("esconder")
+		tamanho = esconder.length
+		for (i = 0; i < tamanho; i++) {
+			esconder[i].style.display = "none"
+		}
+
+		function mostrar_esconde(){
+			esconder = document.getElementsByClassName("esconder")
+
+			if(esconder[0].style.display == "none"){
+				for (i = 0; i < tamanho; i++) {
+					esconder[i].style.display = "block"
+					esconder[i].style.height
+				}
+				document.getElementById("botao").value = "Visitante"
+			}
+
+			else{
+				for (i = 0; i < tamanho; i++) {
+					esconder[i].style.display = "none"
+				}
+				document.getElementById("botao").value = "Admin"
+			}
+		}
+
+	</script>
 
 </div>

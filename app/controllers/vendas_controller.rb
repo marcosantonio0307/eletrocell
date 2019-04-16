@@ -7,6 +7,14 @@ class VendasController < ApplicationController
 	def new
 		@venda = Venda.new
 		@venda.cliente = 'Cliente'
+		todas = Venda.all
+		if todas.size > 0
+			unless Venda.last.id == nil
+				contador = Venda.last.id
+				contador += 1
+				@venda.id = contador
+			end
+		end
 		@venda.save
 		redirect_to edit_venda_path(@venda)
 	end

@@ -19,7 +19,7 @@
 			padding: 5px;
 		}
 	</style>
-	
+
 	<div class="index">
 		<h4 align="center", style="background-color: #6B8E23; padding: 5px;" >Produtos com Estoque Alto</h4>
 		<table class="table table-striped">
@@ -65,5 +65,52 @@
 			</tbody>
 		</table>
 	</div>
+
+	<div class="index">
+		<h4 align="center", style="background-color: #6B8E23; padding: 5px;">Ultimas Vendas</h4>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Venda</th>
+					<th>Cliente</th>
+					<th>Valor total</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @ultimas_vendas.each do |venda| %>
+				<tr>
+					<td><%= venda.id %></td>
+					<td><%= venda.cliente %></td>
+					<td><%= number_to_currency venda.valor_total %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="index">
+		<h4 align="center", style="background-color: #FF6347; padding: 5px;">Ultimas Despesas</h4>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Data</th>
+					<th>Tipo</th>
+					<th>Valor</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @ultimas_despesas.each do |despesa| %>
+				<tr>
+					<td><%= despesa.data %></td>
+					<td><%= despesa.tipo %></td>
+					<td><%= number_to_currency despesa.valor %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+
 
 </div>

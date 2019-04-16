@@ -11,6 +11,7 @@ class ItemPedidosController < ApplicationController
 	end
 
 	def create
+    @erro = nil
     @venda = Venda.find(params[:venda_id])
     item_pedido_params = params.require(:item_pedido).permit!
     @item_pedido = ItemPedido.create item_pedido_params
@@ -19,13 +20,18 @@ class ItemPedidosController < ApplicationController
     produto_id = @item_pedido.produto.id
     @produto = Produto.find(produto_id)
     quantidade_vendida = item_pedido_params[:quantidade].to_i
-    @produto.quantidade = @produto.quantidade - quantidade_vendida
-    @produto.update(quantidade: @produto.quantidade)
-
-    if @item_pedido.save
-      redirect_to edit_venda_path(@venda), notice: 'Item Adicionado com sucesso'
-    else
+    if quantidade_vendida > @produto.quantidade
+      @erro = "Quantidade vendida maior que a quantidade disponivel! 
+      Quantidade disponivel: #{@produto.quantidade} "
       render :new
+    elsif quantidade_vendida == 0
+      @erro = "Quantidade não pode ser Zero!"
+      render :new
+    else
+      @produto.quantidade = @produto.quantidade - quantidade_vendida
+      @produto.update(quantidade: @produto.quantidade)
+      @item_pedido.save
+      redirect_to edit_venda_path(@venda), notice: 'Item Adicionado com sucesso'
     end
  	end
 

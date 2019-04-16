@@ -9,11 +9,11 @@ class VendasController < ApplicationController
 		@venda.cliente = 'Cliente'
 		todas = Venda.all
 		if todas.size > 0
-			unless Venda.last.id == nil
-				contador = Venda.last.id
-				contador += 1
-				@venda.id = contador
-			end
+			contador = Venda.last.id
+			contador += 1
+			@venda.id = contador
+		else
+			@venda.id = 1
 		end
 		@venda.save
 		redirect_to edit_venda_path(@venda)

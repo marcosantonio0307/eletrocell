@@ -194,3 +194,9 @@ label[for="bt_menu"] {
 .field_longo {
 	width: 100%;
 }
+
+.form_new {
+	width: 60%; 
+	margin-top: 20px; 
+	margin-left: 50px;
+}

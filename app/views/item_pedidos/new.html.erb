@@ -12,26 +12,26 @@
 
 
 	<%= form_for ([@venda, @item_pedido]) do |f| %>
+	<div class="form_new">
+		<div class="form-group">
+	    	<%= f.label :produto_id %>
+	    	<%= f.select(:produto_id, Produto.all.map{|c| [c.nome, c.id] })%>
+		</div>
 
-	<div class="form-group">
-    	<%= f.label :produto_id %>
-    	<%= f.select(:produto_id, Produto.all.map{|c| [c.nome, c.id] })%>
+		<div class="form-group", style="width: 30%">
+			<%= f.label :quantidade %>
+			<%= f.text_field :quantidade, class: "form-control" %>
+		</div>
+
+		<div class="form-group", style="width: 30%">
+			<%= f.label :valor_item %>
+			<%= f.text_field :valor_item, placeholder: "R$", class: "form-control" %>
+		</div>
+
+		<div>
+			<%= f.submit :incluir, class: "btn btn-primary" %>
+		</div>
 	</div>
-
-	<div class="form-group", style="width: 30%">
-		<%= f.label :quantidade %>
-		<%= f.text_field :quantidade, class: "form-control" %>
-	</div>
-
-	<div class="form-group", style="width: 30%">
-		<%= f.label :valor_item %>
-		<%= f.text_field :valor_item, placeholder: "R$", class: "form-control" %>
-	</div>
-
-	<div>
-		<%= f.submit :incluir, class: "btn btn-primary" %>
-	</div>
-
 	<% end %>
 
 </div>

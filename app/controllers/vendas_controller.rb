@@ -29,7 +29,7 @@ class VendasController < ApplicationController
 		params[:valor_total] = @total_itens
 		@venda = Venda.find(params[:id])
 		@venda.update valores
-		redirect_to relatorios_r_vendas_path
+		redirect_to relatorios_r_vendas_path, notice: 'Venda Salva com sucesso!'
 	end
 
 	def destroy

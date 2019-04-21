@@ -1,115 +1,31 @@
 <div class="conteudo">
 
-	<div class="rotulo">
-		<span>Visão Geral</span>
-	</div>
-
-
 	<% if flash[:notice] %>
 		<div class="alert alert-info" role="alert">
 	  		<%= flash[:notice] %>
 		</div>
 	<% end %>
 
-	<style type="text/css">
-		.index {
-			width: 45%;
-			float: left;
-			margin: 15px;
-			padding: 5px;
-		}
-	</style>
+	<div id="menu_index">
 
-	<div class="index">
-		<h4 align="center", style="background-color: #0C033E; padding: 5px; color: white;" >Produtos com Estoque Alto</h4>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>Quantidade</th>
-					<th>Preço de Venda</th>
-				</tr>
-			</thead>
+		<div class="submenu_index">
+			<p class="botao_grande"><%= link_to "Nova Venda", vendas_new_path, data: {confirm: 'Deseja registrar uma nova venda?'} %></p>
 
-			<tbody>
-				<% @estoque_alto.each do |produto| %>
-				<tr>
-					<td><%= produto.nome %></td>
-					<td><%= produto.quantidade %></td>
-					<td><%= number_to_currency produto.preco_venda %></td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
+			<p class="botao_grande"><%= link_to "Nova Despesa", caixa_despesas_path %></p>
+		</div>
+		
+		<div class="submenu_index">
+			<p class="botao_grande"><%= link_to 'Meu Estoque', produtos_estoque_path %></p>
 
-	<div class="index">
-		<h4 align="center", style="background-color: #D81111; padding: 5px; color: white;">Produtos com Estoque Baixo</h4>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>Quantidade</th>
-					<th>Preço de Venda</th>
-				</tr>
-			</thead>
+			<p class="botao_grande"><%= link_to "Novo Produto", produtos_new_path %></p>		
+		</div>
 
-			<tbody>
-				<% @estoque_baixo.each do |produto| %>
-				<tr>
-					<td><%= produto.nome %></td>
-					<td><%= produto.quantidade %></td>
-					<td><%= number_to_currency produto.preco_venda %></td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
+		<div class="submenu_index">
+			<p class="botao_grande"><%= link_to "Minhas Vendas", relatorios_r_vendas_path %></p>
 
-	<div class="index">
-		<h4 align="center", style="background-color: #6B8E23; padding: 5px; color: white;">Ultimas Vendas</h4>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Venda</th>
-					<th>Cliente</th>
-					<th>Valor total</th>
-				</tr>
-			</thead>
+			<p class="botao_grande"><%= link_to "Minhas Despesas", relatorios_r_despesas_path %></p>
+		</div>
 
-			<tbody>
-				<% @ultimas_vendas.each do |venda| %>
-				<tr>
-					<td><%= venda.id %></td>
-					<td><%= venda.cliente %></td>
-					<td><%= number_to_currency venda.valor_total %></td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
-
-	<div class="index">
-		<h4 align="center", style="background-color: #FF6347; padding: 5px; color: white;">Ultimas Despesas</h4>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Data</th>
-					<th>Tipo</th>
-					<th>Valor</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<% @ultimas_despesas.each do |despesa| %>
-				<tr>
-					<td><%= despesa.data %></td>
-					<td><%= despesa.tipo %></td>
-					<td><%= number_to_currency despesa.valor %></td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
 	</div>
 
 

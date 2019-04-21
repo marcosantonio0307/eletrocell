@@ -200,3 +200,37 @@ label[for="bt_menu"] {
 	margin-top: 20px; 
 	margin-left: 50px;
 }
+
+#menu_index {
+	width: 80%;
+	height: 300px;
+	margin: 1em auto;
+	padding-left: 2.5%;
+}
+
+.submenu_index {
+	width: 30%;
+	height: 95%;
+	margin: 0.5em 1%;
+	float: left;
+}
+
+.botao_grande {
+	width: 90%;
+	padding: 0.4em;
+	background: #680101;
+	border-radius: 0.3em;
+	text-align: center;
+	font-weight: bold;
+	margin: 2em auto;
+	font-size: 1.3em;
+}
+
+.botao_grande a {
+	text-decoration: none;
+	color: white;
+}
+
+.botao_grande a:hover {
+	color: #dcdcdc;
+}

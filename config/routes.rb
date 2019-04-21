@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get "relatorios/filtra" => "relatorios#filtra", as: :filtra_despesas
   get "relatorios/r_vendas" => "relatorios#r_vendas"
   get "relatorios/filtra_vendas" => "relatorios#filtra_vendas"
+  get "relatorios/visao_geral" => "relatorios#visao_geral"
 
   #Vendas
   get "vendas/filtra" => "vendas#filtra"
